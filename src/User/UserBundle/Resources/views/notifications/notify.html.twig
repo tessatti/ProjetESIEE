@@ -1,0 +1,39 @@
+{% stylesheets '@UserUserBundle/Resources/public/css/notifications.css' %}
+  <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+{% endstylesheets %}
+<header>
+<div id = 'search'>
+<form id = 'rechercher' method = 'POST'>
+	<input type = 'text' value = 'search' name = 'search_entry'/>	
+	<input type = 'submit' value = 'search' name = 'search'/>
+</form>
+</div>
+</header>
+
+<div id = 'nav'>
+<a href = '/ProjetESIEE/web/app_dev.php/home' class = 'navig'>Home</a>
+<a href = '/ProjetESIEE/web/app_dev.php/logout' class = 'navig'>Log out</a>
+</div>
+
+<h4>Notifications</h4>
+
+{%if notifications is defined%}
+	{%for notification in notifications%}
+		{%if notification.type == 1%}
+			<div><a href = 'http://localhost/ProjetESIEE/web/app_dev.php/profile/{{notification.id}}'>{{notification.firstname}} 
+			{{notification.lastname}}</a> wants to add you to her network</div>
+			<a href = 'http://localhost/ProjetESIEE/web/app_dev.php/confirm/{{notification.id}}/{{notification.not_id}}'>Confirm</a>
+			<a href = 'http://localhost/ProjetESIEE/web/app_dev.php/ignore/{{notification.not_id}}'>Ignore</a>
+		{%endif%}
+		{%if notification.type == 3%}
+			<div><a href = 'http://localhost/ProjetESIEE/web/app_dev.php/profile/{{notification.id}}'>{{notification.firstname}} 
+			{{notification.lastname}}</a> is now part of your network</div>
+		{%endif%}
+		{%if notification.type == 2%}
+			<div><a href = 'Friend request from {{notification.firstname}} 
+			{{notification.lastname}} ignored</div>
+		{%endif%}
+	{%endfor%}
+{%else%}
+	<p>no notifications</p>
+{%endif%}

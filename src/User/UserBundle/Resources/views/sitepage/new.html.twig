@@ -1,0 +1,25 @@
+{# src/User/UserBundle/Resources/views/sitepage/new.html.twig #}
+
+{% stylesheets '@UserUserBundle/Resources/public/css/main.css' %}
+  <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+{% endstylesheets %}
+<header></header>
+<h3>Register</h3>
+{%if message is defined%}
+<p>{{message}}</p>
+{%endif%}
+<form method = 'post'>
+<input type='text' value='First Name' name='firstname'/>
+<input type='text' value='Last Name' name='lastname'/>
+<input type = 'email' value = 'Email' name = 'email'/>
+<input type = 'password' value = 'Password' name = 'password'/>
+<input type = 'submit' value = 'Validate' name = 'validate'/> 
+</form>
+
+<h3>Sign in</h3>
+<form method = 'post'>
+<input type='text' value='Email' name='email'/>
+<input type='password' value='password' name='password'/>
+<input type = 'submit' value = 'Submit' name = 'submit'/>
+</form>
+<footer></footer>

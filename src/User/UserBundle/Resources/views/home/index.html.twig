@@ -1,0 +1,51 @@
+{% stylesheets '@UserUserBundle/Resources/public/css/home.css'%}
+  <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+{% endstylesheets %}
+<header>
+<div id = 'search'>
+<form id = 'rechercher' method = 'POST'>
+	<input type = 'text' value = 'search' name = 'search_entry'/>	
+	<input type = 'submit' value = 'search' name = 'search'/>
+</form>
+</div>
+</header>
+<div id = 'username'>
+<a href = '/ProjetESIEE/web/app_dev.php/profile/{{app.session.get('id')}}' id = 'name'>{{app.session.get('firstname')}} {{app.session.get('lastname')}}</a>
+</div>
+
+<div id = 'nav'>
+<a href = '/ProjetESIEE/web/app_dev.php/notifications' class = 'navig'>Notifications</a></br>
+<a href = '/ProjetESIEE/web/app_dev.php/logout' class = 'navig'>Log out</a>
+</div>
+
+<div id = 'new_article'>
+<p>What would you like to share?</p>
+<form id = 'ecrire' method = 'POST'>
+	<input type = 'text' value = 'title' name = 'title' class = 'title'/></br>
+	<input type = 'text' value = 'article' name = 'article' class = 'article'/>
+	<input type="submit" name="load" value="Load">
+</form>
+</div>
+
+<form action="upload_file.php" method="post"
+enctype="multipart/form-data" id = 'image_form'>
+<label for="file">Filename:</label>
+<input type="file" name="file" id="file"><br>
+<input type="submit" name="submit" value="Submit">
+</form>
+
+{%if listeUsers is defined%}
+	{%for user in listeUsers%}
+		<a href = '/ProjetESIEE/web/app_dev.php/profile/{{user.id}}'>{{user.firstname}}</a></br>
+	{%endfor%}
+{%endif%}
+
+{%if listeArticles is defined%}
+	{%for article in listeArticles%}
+		<h5>{{article.title}}</h5>
+		<li>{{article.text}}</li>
+	{%endfor%}
+{%endif%}
+
+
+<footer></footer>

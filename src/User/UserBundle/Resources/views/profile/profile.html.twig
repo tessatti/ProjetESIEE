@@ -1,0 +1,37 @@
+{% stylesheets '@UserUserBundle/Resources/public/css/profile.css' %}
+  <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+{% endstylesheets %}
+<header>
+<div id = 'search'>
+<form id = 'rechercher' method = 'POST'>
+	<input type = 'text' value = 'search' name = 'search_entry'/>	
+	<input type = 'submit' value = 'search' name = 'search'/>
+</form>
+</div>
+</header>
+<div id = 'nav'>
+<a href = '/ProjetESIEE/web/app_dev.php/home' class = 'navig'>Homepage</a>
+<a href = '/ProjetESIEE/web/app_dev.php/logout' class = 'navig'>Log out</a>
+</div>
+<div id = 'name'>
+<a href = '/ProjetESIEE/web/app_dev.php/profile/{{user.id}}' class = 'username'>{{user.firstname}} {{user.lastname}}</a></br>
+</div>
+
+{%if user.id != app.session.get('id')%}
+	<input type = 'submit' value = 'Add to network' name = 'network'/>
+{%endif%}
+
+{%if message is defined%}
+	{{message}}
+{%endif%}
+
+{%if user_articles is defined%}
+	<ul>
+	{%for article in user_articles%}
+		<li><h5>{{article.title}}</h5>
+		{{article.text}}</li>
+	{%endfor%}
+	</ul>
+{%else%}
+	<p>no articles</p>
+{%endif%}

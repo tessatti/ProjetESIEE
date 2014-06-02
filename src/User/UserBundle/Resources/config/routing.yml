@@ -1,0 +1,31 @@
+user_user_home:
+    pattern: /home
+    defaults: {_controller: UserUserBundle:home:index }
+
+user_user_sitepage:
+    pattern: /sitepage
+    defaults: {_controller: UserUserBundle:sitepage:new }
+
+user_user_signin:
+    pattern: /signin
+    defaults: {_controller: UserUserBundle:signin:new }
+
+user_user_profile:
+    pattern: /profile/{id}
+    defaults: {_controller: UserUserBundle:profile:profile }
+
+user_user_logout:
+    pattern: /logout
+    defaults: {_controller: UserUserBundle:sitepage:logout }
+
+user_user_notifications:
+    pattern: /notifications
+    defaults: {_controller: UserUserBundle:notifications:notify}
+
+user_user_confirm:
+    pattern: /confirm/{id}/{not_id}
+    defaults: {_controller: UserUserBundle:notifications:confirm}
+
+user_user_ignore: 
+    pattern: /ignore/{not_id}
+    defaults: {_controller: UserUserBundle:notifications:ignore}

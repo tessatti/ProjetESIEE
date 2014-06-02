@@ -1,0 +1,24 @@
+header
+{
+	background-color: #1267be;
+}
+#search
+{
+	margin-left: 1125px;
+	padding-top:11px;
+}
+#new_article 
+{
+	margin-left:120px;
+	margin-top:-20px;
+}
+.navig
+{
+	text-decoration: none;
+	color: grey;
+	padding-right:20px;
+}
+#nav
+{
+	margin-left: 20px;
+}

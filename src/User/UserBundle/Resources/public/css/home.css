@@ -1,0 +1,48 @@
+header
+{
+	background-color: #1267be;
+	height: 50px;
+}
+#image_form
+{
+	margin-left: 120px;
+}
+.navig
+{
+	text-decoration: none;
+	color: black;
+	font-size: 16px;
+}
+#username 
+{
+	margin-top: 10px;
+}
+#name 
+{
+	text-decoration: none;
+	color: grey;
+	font-size: 20px;
+}
+#search
+{
+	margin-left: 1125px;
+	padding-top:11px;
+}
+#new_article 
+{
+	margin-left:120px;
+	margin-top:-80px;
+}
+.article 
+{
+	padding: 50px 100px 50px 100px;
+	border-radius: 2px;
+}
+.title
+{
+	padding-right: 100px; 
+	padding-left: 100px;
+	padding-top:5px;
+	padding-bottom:5px;
+	border-radius: 2px;
+}

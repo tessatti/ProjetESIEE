@@ -1,0 +1,3 @@
+article_article_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: ArticleArticleBundle:Default:index }
