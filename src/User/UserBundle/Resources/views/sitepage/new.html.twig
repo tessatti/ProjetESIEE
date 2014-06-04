@@ -1,25 +1,105 @@
 {# src/User/UserBundle/Resources/views/sitepage/new.html.twig #}
 
-{% stylesheets '@UserUserBundle/Resources/public/css/main.css' %}
-  <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
-{% endstylesheets %}
-<header></header>
-<h3>Register</h3>
-{%if message is defined%}
-<p>{{message}}</p>
-{%endif%}
-<form method = 'post'>
-<input type='text' value='First Name' name='firstname'/>
-<input type='text' value='Last Name' name='lastname'/>
-<input type = 'email' value = 'Email' name = 'email'/>
-<input type = 'password' value = 'Password' name = 'password'/>
-<input type = 'submit' value = 'Validate' name = 'validate'/> 
-</form>
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('css/main.css') }}" type="text/css" />
+{% endblock %}
+<script type="text/javascript">
+	var signinbool = false;
+	var regbool = false;
+	var signin;
+	var register;
+	
+	function signinfunc(){
+		signin = document.getElementById("signin");
+		register = document.getElementById("register");
+		if(!signinbool){
+			closereg();
+			opensignin();
+		}
+		else{
+			closesignin();
+		}
+	}
+	function regfunc(){
+		signin = document.getElementById("signin");
+		register = document.getElementById("register");
+		if(!regbool){
+			closesignin();
+			openreg();
+		}
+		else{
+			closereg();
+		}
+	}
+	function opensignin(){
+		signin.style.display = "block";
+		signinbool = true;
+	}
+	function closesignin(){
+		signin.style.display = "none";
+		signinbool = false;
+	}
+	function openreg(){
+		register.style.display = "block";
+		regbool = true;
+	}
+	function closereg(){
+		register.style.display = "none";
+		regbool = false;
+	}
+</script>
 
-<h3>Sign in</h3>
-<form method = 'post'>
-<input type='text' value='Email' name='email'/>
-<input type='password' value='password' name='password'/>
-<input type = 'submit' value = 'Submit' name = 'submit'/>
-</form>
-<footer></footer>
+<div id="body-in">
+	<div id="couleur"></div>
+	<img id="logo" src="{{asset('images/1.png')}}" alt="logo"/>
+	<div id="corps">
+		
+		<div id="boutons">
+			<div id="register-button">
+				<div id="registerbuttononly" onclick="regfunc()">Register</div>
+				<div id="register">
+					{% if message is defined %}
+					<h5>{{message}}</h5>
+					{%endif%}
+					<form method = 'post'>
+					<input type='text' placeholder='First Name' name='firstname'/>
+					<input type='text' placeholder='Last Name' name='lastname'/>
+					<input type = 'email' placeholder = 'Email' name = 'email'/>
+					<input type = 'password' placeholder = 'Password' name = 'password'/>
+					<input type = 'submit' value = 'Validate' name = 'validate'/> 
+					</form>
+					<div id="register-after"></div>
+				</div>
+			</div>
+			<div id="signin-button">
+				<div id="signinbuttononly" onclick="signinfunc()">Sign in</div>
+				<div id="signin">
+					<form method = 'post'>
+					<input type='text' placeholder='Email' name='email'/><br/>
+					<input type='password' placeholder='password' name='password'/><br/>
+					<input type = 'submit' value = 'Submit' name = 'submit'/>
+					</form>
+					<div id="signin-after"></div>
+				</div>
+			</div>
+		</div>
+		
+		<table>
+			<tr>
+				<td id="animation">
+					<img src="{{asset('images/iphone5.png')}}" alt="iphone" />
+				</td>
+				<td id="presentation">
+					<h1>Welcome to INFFLOW !</h1>
+					<br/><h2>Share your scoop and stay informed</h2><br/>
+					<ul>
+						<li>Get world news from local users</li>
+						<li>Use your phone to upload information wherever you are</li>
+						<li>Verify and confirm what other users post</li>
+						<li>Chat with your friends about any matter</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

@@ -20,19 +20,15 @@
 
 <div id = 'new_article'>
 <p>What would you like to share?</p>
-<form id = 'ecrire' method = 'POST'>
+<form id = 'ecrire' method = 'POST' enctype="multipart/form-data">
 	<input type = 'text' value = 'title' name = 'title' class = 'title'/></br>
-	<input type = 'text' value = 'article' name = 'article' class = 'article'/>
+	<label for="image">Picture:</label>
+	<input type = 'file' value = 'image' name = 'image' class = 'image_field'/></br>
+	<input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+	<input type = 'text' value = 'article' name = 'article' class = 'article'/></br>
 	<input type="submit" name="load" value="Load">
 </form>
 </div>
-
-<form action="upload_file.php" method="post"
-enctype="multipart/form-data" id = 'image_form'>
-<label for="file">Filename:</label>
-<input type="file" name="file" id="file"><br>
-<input type="submit" name="submit" value="Submit">
-</form>
 
 {%if listeUsers is defined%}
 	{%for user in listeUsers%}
@@ -43,7 +39,12 @@ enctype="multipart/form-data" id = 'image_form'>
 {%if listeArticles is defined%}
 	{%for article in listeArticles%}
 		<h5>{{article.title}}</h5>
-		<li>{{article.text}}</li>
+		{%if article.img_src is sameas('NULL')%}
+			{{article.text}}</li>
+		{%else%}
+			<img src="{{ asset(article.img_src) }}" width = '50%' height = '50%'/><br>
+			{{article.text}}</li>
+		{%endif%}
 	{%endfor%}
 {%endif%}
 

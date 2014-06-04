@@ -28,7 +28,7 @@ class articleRepository extends EntityRepository
   {
 	  $qb = $this->_em->createQueryBuilder();
 
-	  $qb->select('a.title, a.text, a.timestamp')
+	  $qb->select('a.title, a.text, a.timestamp, a.img_src')
 		 ->from('ArticleArticleBundle:article', 'a')
 		 ->where('a.id = :id')
 		 ->setParameter('id', $id);

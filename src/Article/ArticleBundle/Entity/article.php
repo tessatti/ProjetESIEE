@@ -27,7 +27,14 @@ class article
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
-
+	
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="img_src", type="string", length=255, nullable = true)
+     */
+    private $img_src;
+	
     /**
      * @var string
      *
@@ -54,6 +61,7 @@ class article
 	 {
 		$this->timestamp = new \Datetime();
 		$this->title = NULL;
+		$this->img_src = 'NULL';
 	 }
 	 
     /**
@@ -135,6 +143,29 @@ class article
         return $this->text;
     }
 
+	    /**
+     * Set img_src
+     *
+     * @param string $img_src
+     * @return article
+     */
+    public function setImg_src($img_src)
+    {
+        $this->img_src = $img_src;
+
+        return $this;
+    }
+
+    /**
+     * Get img_src
+     *
+     * @return string 
+     */
+    public function getImg_src()
+    {
+        return $this->img_src;
+    }
+	
     /**
      * Set timestamp
      *

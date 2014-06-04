@@ -1,0 +1,69 @@
+header
+{
+	background-color: #1267be;
+	height: 50px;
+}
+#search
+{
+	margin-left: 1110px;
+	padding-top:11px;
+}
+.navig
+{
+	text-decoration: none;
+	color: black;
+	font-size: 16px;
+	padding-right:10px;
+}
+#name 
+{
+	color: grey;
+	font-size: 20px;
+}
+.username
+{
+	text-decoration: none;
+	color: black;
+}
+ul
+{
+	border: 1px solid grey;
+}
+li
+{
+	border-bottom:1px solid #ececec;
+	padding-bottom: 10px;
+	padding-top:10px;
+}
+/* NEW */
+.article{
+	width:620px;
+	display:block;
+	margin:20px auto;
+	-webkit-box-shadow: 1px 1px 3px 2px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    1px 1px 3px 2px rgba(50, 50, 50, 0.75);
+	box-shadow:         1px 1px 3px 2px rgba(50, 50, 50, 0.75);
+}
+.titre{
+	font-weight:bold;
+	font-size:16pt;
+	padding:5px;
+}
+.date{
+	text-align:right;
+	padding:5px;
+}
+.texte{
+	font-size:13pt;
+	text-align:justify;
+	padding:15px;
+}
+.image{
+	padding:5px;
+}
+.image img{
+	max-height:300px;
+	max-width:600px;
+	display:block;
+	margin:0 auto;
+}

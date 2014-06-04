@@ -1,6 +1,6 @@
-{% stylesheets '@UserUserBundle/Resources/public/css/profile.css' %}
-  <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
-{% endstylesheets %}
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('css/profile.css') }}" type="text/css" />
+{% endblock %}
 <header>
 <div id = 'search'>
 <form id = 'rechercher' method = 'POST'>
@@ -26,12 +26,17 @@
 {%endif%}
 
 {%if user_articles is defined%}
-	<ul>
 	{%for article in user_articles%}
-		<li><h5>{{article.title}}</h5>
-		{{article.text}}</li>
+		<table class="article">
+			<tr><td class="titre">{{article.title}}</td></tr>
+			<tr><td class="date">{{article.timestamp|date("m/d/Y")}}</td></tr>
+		{%if article.img_src is sameas('NULL')%}
+			<tr><td class="texte">{{article.text}}</td></tr>
+		{%else%}
+			<tr><td class="image"><img src="{{ asset(article.img_src) }}"/></td></tr>
+			<tr><td class="texte">{{article.text}}</td></tr>
+		{%endif%}
 	{%endfor%}
-	</ul>
 {%else%}
 	<p>no articles</p>
 {%endif%}
